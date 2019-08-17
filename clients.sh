@@ -21,7 +21,7 @@ do
 
 #Copy the key,crt files from the original location en paste in the client
 #directory.
-  cp ../ta.key .
+  cp ../ta.key . # You can comment this line if do not use the Hardening Security
   cp /etc/easy-rsa/pki/issued/OVPN$start.crt .
   cp /etc/easy-rsa/pki/private/OVPN$start.key .
   cp /etc/easy-rsa/pki/ca.crt .
