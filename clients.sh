@@ -13,6 +13,7 @@ do
   mkdir OVPN$start
 
 # Editing the ovpn file
+  sed s/myserver/OVPN$start/ <client.ovpn >OVPN$start/OVPN$start.ovpn
   sed s/clientfiles/OVPN$start/ <client.ovpn >OVPN$start/OVPN$start.ovpn
 
 #Enter to the Client VPN directory
