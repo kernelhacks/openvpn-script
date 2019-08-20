@@ -4,6 +4,9 @@ read start
 
 echo Please enter the lasted position of the VPN ID
 read end
+
+echo Please enter the server IP of the VPN
+read server
 while (( $start <= $end ));
 do
 #build the Open Vpn Files
@@ -13,7 +16,7 @@ do
   mkdir OVPN$start
 
 # Editing the ovpn file
-  sed s/myserver/OVPN$start/ <client.ovpn >OVPN$start/OVPN$start.ovpn
+  sed s/myserver/$server/ <client.ovpn >$server/OVPN$start.ovpn
   sed s/clientfiles/OVPN$start/ <client.ovpn >OVPN$start/OVPN$start.ovpn
 
 #Enter to the Client VPN directory
@@ -34,6 +37,7 @@ do
 
 #Removing the client directory
   rm -rf OVPN$start
-# echo "This mail has the VPN attached" | mailx -s "New VPN Client OVPN$start" -a OVPN$start.zip dpochet@nibbletec.com
+# Comment out the line below for to send the openvpn file to a email address
+# echo "This mail has the VPN attached" | mailx -s "New VPN Client OVPN$start" -a OVPN$start.zip email@nibbletec.com
 start=$(( start+1 ))
 done
