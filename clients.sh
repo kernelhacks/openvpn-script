@@ -5,8 +5,8 @@ read start
 echo Please enter the lasted position of the VPN ID
 read end
 
-echo Please enter the server IP of the VPN
-read server
+# echo Please enter the server IP of the VPN
+# read server
 while (( $start <= $end ));
 do
 #build the Open Vpn Files
@@ -16,7 +16,7 @@ do
   mkdir OVPN$start
 
 # Editing the ovpn file
-  sed s/myserver/$server/ <client.ovpn >$server/OVPN$start.ovpn
+# sed s/myserver/$server/ <client.ovpn >$server/OVPN$start.ovpn
   sed s/clientfiles/OVPN$start/ <client.ovpn >OVPN$start/OVPN$start.ovpn
 
 #Enter to the Client VPN directory
